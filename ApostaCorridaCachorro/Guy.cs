@@ -21,22 +21,26 @@ namespace ApostaCorridaCachorro
 
         public void ClearBet()
         {
-            MyBet.Amount = 0;
-            MyBet.Bettor = null;
-            MyBet.Dog = 0;
+            MyBet = null;
+            MyLabel.Text = Name + "'s Bet";
         }
 
         public bool PlaceBet(int Amount, int Dog)
         {
-            if(Cash >= 5)
+            if(Amount >= 5)
             {
+                MyBet = new Bet();
                 MyBet.Amount = Amount;
                 MyBet.Dog = Dog;
                 MyBet.Bettor = this;                
                 return true;
             }
             else
-            {                
+            {
+                MyBet = new Bet();
+                MyBet.Amount = 0;
+                MyBet.Dog = 0;
+                MyBet.Bettor = this;
                 return false;
             }
         }

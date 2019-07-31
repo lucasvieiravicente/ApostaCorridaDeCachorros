@@ -18,7 +18,7 @@ namespace ApostaCorridaCachorro
                 return Bettor.Name + " hasn't bet.";       
             
             else            
-                return Bettor.Name + " bet " + Amount + "bucks on dog " + Dog + "#";            
+                return Bettor.Name + " bet " + Amount + " bucks on dog " + Dog + "#";            
         }
 
         public int PayOut(int Winner)
