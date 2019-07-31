@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -19,7 +15,7 @@ namespace ApostaCorridaCachorro
         public bool Run()
         {
             MyPictureBox = new PictureBox();
-            Location += Randomizer.Next(5);
+            Location += Randomizer.Next(0,5);
             Point p = MyPictureBox.Location;
             p.X += Location;
             MyPictureBox.Location = p;

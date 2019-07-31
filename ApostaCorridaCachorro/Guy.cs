@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace ApostaCorridaCachorro
 {
@@ -29,18 +24,12 @@ namespace ApostaCorridaCachorro
         {
             if(Amount >= 5)
             {
-                MyBet = new Bet();
-                MyBet.Amount = Amount;
-                MyBet.Dog = Dog;
-                MyBet.Bettor = this;                
+                MyBet = new Bet { Amount = Amount, Dog = Dog, Bettor = this };
                 return true;
             }
             else
             {
-                MyBet = new Bet();
-                MyBet.Amount = 0;
-                MyBet.Dog = 0;
-                MyBet.Bettor = this;
+                MyBet = new Bet { Amount = 0, Dog = 0, Bettor = this };
                 return false;
             }
         }

@@ -15,63 +15,33 @@ namespace ApostaCorridaCachorro
         //Instancia dos caras e cachorros        
         Greyhound[] dogs = new Greyhound[4];
         Guy[] guys = new Guy[3];
-
+        int trackLenght = 1000;
         public Form1()
         {
             InitializeComponent();
 
             //Atualização de dados cães
             //#1
-            dogs[0] = new Greyhound();
-            dogs[0].Location = 0;
-            dogs[0].MyPictureBox = null;
-            dogs[0].RacetrackLenght = 20;
-            dogs[0].Randomizer = new Random();
-            dogs[0].StartingPosition = 0;
+            dogs[0] = new Greyhound() { StartingPosition = 0, Location = (int)StartPosition, MyPictureBox = dog1PictureBox,
+                                                                                            RacetrackLenght = trackLenght, Randomizer = new Random() };
             //#2
-            dogs[1] = new Greyhound();
-            dogs[1].Location = 0;
-            dogs[1].MyPictureBox = null;
-            dogs[1].RacetrackLenght = 20;
-            dogs[1].Randomizer = new Random();
-            dogs[1].StartingPosition = 0;
+            dogs[1] = new Greyhound() { StartingPosition = 0, Location = (int)StartPosition, MyPictureBox = dog2PictureBox,
+                                                                                            RacetrackLenght = trackLenght, Randomizer = new Random() };
             //#3
-            dogs[2] = new Greyhound();
-            dogs[2].Location = 0;
-            dogs[2].MyPictureBox = null;
-            dogs[2].RacetrackLenght = 20;
-            dogs[2].Randomizer = new Random();
-            dogs[2].StartingPosition = 0;
+            dogs[2] = new Greyhound() { StartingPosition = 0, Location = (int)StartPosition, MyPictureBox = dog3PictureBox,
+                                                                                            RacetrackLenght = trackLenght, Randomizer = new Random() };
             //#4
-            dogs[3] = new Greyhound();
-            dogs[3].Location = 0;
-            dogs[3].MyPictureBox = null;
-            dogs[3].RacetrackLenght = 20;
-            dogs[3].Randomizer = new Random();
-            dogs[3].StartingPosition = 0;
+            dogs[3] = new Greyhound() { StartingPosition = 0, Location = (int)StartPosition, MyPictureBox = dog4PictureBox,
+                                                                                            RacetrackLenght = trackLenght, Randomizer = new Random()};
+            
 
             //Atualização de dados dos apostadores
             //#1
-            guys[0] = new Guy();
-            guys[0].Name = "Joe";
-            guys[0].Cash = 50;
-            guys[0].MyBet = null;
-            guys[0].MyLabel = joeLabel;
-            guys[0].MyRadioButton = joeRadioButton;
+            guys[0] = new Guy { Name = "Joe", Cash = 50, MyBet = null, MyLabel = joeLabel, MyRadioButton = joeRadioButton };
             //#2
-            guys[1] = new Guy();
-            guys[1].Name = "Bob";
-            guys[1].Cash = 75;
-            guys[1].MyBet = null;
-            guys[1].MyLabel = bobLabel;
-            guys[1].MyRadioButton = bobRadioButton;
+            guys[1] = new Guy { Name = "Bob", Cash = 75, MyBet = null, MyLabel = bobLabel, MyRadioButton = bobRadioButton };
             //#3
-            guys[2] = new Guy();
-            guys[2].Name = "Al";
-            guys[2].Cash = 45;
-            guys[2].MyBet = null;
-            guys[2].MyLabel = alLabel;
-            guys[2].MyRadioButton = alRadioButton;
+            guys[2] = new Guy{ Name = "Al", Cash = 45, MyBet = null, MyLabel = alLabel, MyRadioButton = alRadioButton };
 
             //Atuaização do texto dos radioButtons com as apostas
             guys[0].UpdateLabels();
@@ -122,65 +92,49 @@ namespace ApostaCorridaCachorro
             }
 
             //Laço para fazer os cachorros correrem enquanto retornarem falso;
-            for(int i = 0; i < 20; i++)
+            for (int i = 0; i < trackLenght; i++)
             {
-                dogs[1].Run();
-                dogs[0].Run();                
-                dogs[2].Run();
-                dogs[3].Run();
+                //Random random1 = new Random();
+                //Random random2 = new Random();
+                //dogs[random1.Next(4)].Run();
+                //dogs[random2.Next(4)].Run();
+                //dogs[2].Run();
+                //dogs[3].Run();
+                //if (dogs[0].Run() || dogs[1].Run() || dogs[2].Run() || dogs[3].Run())
+                //    break;
 
                 if (dogs[0].Run() == true)
                 {
                     winnerDog = 1;
-                    break;
                 }
                 if (dogs[1].Run() == true)
                 {
                     winnerDog = 2;
-                    break;
                 }
                 if (dogs[2].Run() == true)
                 {
                     winnerDog = 3;
-                    break;
                 }
                 if (dogs[3].Run() == true)
                 {
                     winnerDog = 4;
-                    break;
                 }
             }
 
             //Série para testar e aplicar a msg e apostas depois que chegar o cachorro vencedor
-            if (winnerDog == 1)
-            {
-                MessageBox.Show("The winner is dog #1");
-                guys[0].MyBet.PayOut(1);
-                guys[1].MyBet.PayOut(1);
-                guys[2].MyBet.PayOut(1);
-            }
-            else if (winnerDog == 2)
-            {
-                MessageBox.Show("The winner is dog #2");
-                guys[0].MyBet.PayOut(2);
-                guys[1].MyBet.PayOut(2);
-                guys[2].MyBet.PayOut(2);
-            }
-            else if (winnerDog == 3)
-            {
-                MessageBox.Show("The winner is dog #3");
-                guys[0].MyBet.PayOut(3);
-                guys[1].MyBet.PayOut(3);
-                guys[2].MyBet.PayOut(3);
-            }
-            else
-            {
+            if (winnerDog == 1)            
+                MessageBox.Show("The winner is dog #1");                            
+            else if (winnerDog == 2)            
+                MessageBox.Show("The winner is dog #2");            
+            else if (winnerDog == 3)            
+                MessageBox.Show("The winner is dog #3");            
+            else            
                 MessageBox.Show("The winner is dog #4");
-                guys[0].MyBet.PayOut(4);
-                guys[1].MyBet.PayOut(4);
-                guys[2].MyBet.PayOut(4);
-            }
 
+            guys[0].Cash += guys[0].MyBet.PayOut(winnerDog);
+            guys[1].Cash += guys[1].MyBet.PayOut(winnerDog);
+            guys[2].Cash += guys[2].MyBet.PayOut(winnerDog);
+            
             //Atualiza os textos nos radioButtons após o fim da corrida e cobrança/pagamento das apostas
             guys[0].UpdateLabels();
             guys[1].UpdateLabels();
